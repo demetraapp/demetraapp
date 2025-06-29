@@ -1,0 +1,12 @@
+[submodule "database"]
+	path = database
+	url = git@gitlab.com:demetra-agroteam/database.git
+
+[submodule "front-end"]
+	path = frontEnd
+	url = git@gitlab.com:demetra-agroteam/demetra-front-end.git
+
+
+[submodule "back-end"]
+	path = server
+	url = git@gitlab.com:demetra-agroteam/backend.git
