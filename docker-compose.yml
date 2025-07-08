@@ -1,0 +1,56 @@
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: mongodb_local
+    restart: always
+    ports:
+      - "27017:27017"  # Expose MongoDB port to host
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: myapp_db
+    volumes:
+      - mongodb_data:/data/db      # Persist MongoDB data
+      - mongodb_config:/data/configdb  # Persist MongoDB configuration
+    networks:
+      - app_network
+
+  backend:
+    build:
+      context: ./backend
+    container_name: backend_service
+    volumes:
+      - ./backend:/app
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    ports:
+      - "8000:8000"
+    environment:
+      MONGO_URI: mongodb://admin:password@mongodb:27017/myapp_db?authSource=admin
+    depends_on:
+      - mongodb
+    networks:
+      - app_network
+
+  frontend:
+    build:
+      context: ./demetra-front-end
+    container_name: frontend_service
+    volumes:
+      - ./demetra-front-end:/app
+      - node_modules:/app/node_modules
+    command: npm run dev
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    networks:
+      - app_network
+
+volumes:
+  mongodb_data:
+  mongodb_config:
+  node_modules:
+
+networks:
+  app_network:
+    driver: bridge
