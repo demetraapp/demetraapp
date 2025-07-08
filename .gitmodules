@@ -1,6 +1,8 @@
 [submodule "backend"]
 	path = backend
 	url = git@gitlab.com:demetra-agroteam/backend.git
+	branch = main
 [submodule "demetra-front-end"]
 	path = demetra-front-end
 	url = git@gitlab.com:demetra-agroteam/demetra-front-end.git
+	branch = main
