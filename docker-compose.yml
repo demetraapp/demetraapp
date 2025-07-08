@@ -37,7 +37,7 @@ services:
     container_name: frontend_service
     volumes:
       - ./demetra-front-end:/app
-      - /app/node_modules
+      - node_modules:/app/node_modules
     command: npm run dev
     ports:
       - "5173:5173"
@@ -48,9 +48,8 @@ services:
 
 volumes:
   mongodb_data:
-    driver: local
   mongodb_config:
-    driver: local
+  node_modules:
 
 networks:
   app_network:
