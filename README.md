@@ -5,12 +5,12 @@ A comprehensive agricultural platform combining satellite data, weather analytic
 ## Overview
 
 This is a project developed initially in the context of a hackathon by:
-Alexandros Spitalas (Project Manager)
-Micheal Mitsainas (Backend)  
-Kostas Loukanaris (Backend)
-Giorgos Kandilas (Frontend) 
-Kwstas Tsakaleris (Frontend)
-Thanos Liakos (Research)
+- Alexandros Spitalas (Project Manager)
+- Micheal Mitsainas (Backend)  
+- Kostas Loukanaris (Backend) 
+- Giorgos Kandilas (Frontend) 
+- Kwstas Tsakaleris (Frontend)
+- Thanos Liakos (Research)
 
 Demetra is a full-stack agricultural technology platform that provides:
 - **Real-time weather data** and historical climate analysis
